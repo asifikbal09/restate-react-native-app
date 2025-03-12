@@ -5,6 +5,8 @@ import images from "@/constants/images";
 import icons from "@/constants/icons";
 import { login } from "@/lib/appwrite";
 import { useGlobalContext } from "@/lib/global-provider";
+import { Redirect } from "expo-router";
+
 
 export default function SignIn() {
 
@@ -16,6 +18,7 @@ export default function SignIn() {
 
     if(result){
       refetch()
+      return <Redirect href={'/'}/>
     }else{
       Alert.alert("Error","Failed to login.")
     }
