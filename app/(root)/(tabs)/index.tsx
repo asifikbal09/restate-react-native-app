@@ -4,7 +4,6 @@ import Search from "@/components/Search";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
 import { useGlobalContext } from "@/lib/global-provider";
-import seed from "@/lib/seed";
 import { Link } from "expo-router";
 import {
   Button,
