@@ -50,7 +50,7 @@ const Profile=()=> {
       >
         <View className="flex flex-row justify-between items-center mt-5">
           <Text className="font-rubik-bold text-xl">Profile</Text>
-          <Image source={icons.bell} />
+          <Image source={icons.bell}  className="size-5"/>
         </View>
 
         <View className="flex flex-row justify-center mt-5">
