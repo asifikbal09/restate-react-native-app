@@ -5,12 +5,14 @@ import images from "@/constants/images";
 import icons from "@/constants/icons";
 import { login } from "@/lib/appwrite";
 import { useGlobalContext } from "@/lib/global-provider";
-import { Redirect } from "expo-router";
+import { Redirect, router } from "expo-router";
 
 
 export default function SignIn() {
 
-  const {refetch} = useGlobalContext()
+  const { refetch, loading, isLogged } = useGlobalContext();
+
+  if (!loading && isLogged) return <Redirect href="/" />;
 
   const handleLogin=async()=>{
     
@@ -18,15 +20,16 @@ export default function SignIn() {
 
     if(result){
       refetch()
-      return <Redirect href={'/'}/>
     }else{
       Alert.alert("Error","Failed to login.")
     }
 
   }
   return (
-    <SafeAreaView className="bg-white h-full">
-      <ScrollView contentContainerClassName={"h-full "}>
+    <SafeAreaView className="bg-accent-100 h-full">
+      <ScrollView contentContainerStyle={{
+          height: "100%",
+        }}>
         <Image
           source={images.onboarding}
           className="w-full h-4/6"
@@ -43,7 +46,7 @@ export default function SignIn() {
           <Text className="text-lg font-rubik text-black-200 text-center mt-12">
             Login to ReState with Google
           </Text>
-          <TouchableOpacity onPress={handleLogin} className="bg-white shadow-md shadow-zinc-300 rounded-full w-full py-4 mt-5"> 
+          <TouchableOpacity onPress={handleLogin} className="bg-accent-100 shadow-md shadow-zinc-300 rounded-full w-full py-4 mt-5"> 
             <View className="flex flex-row items-center justify-center">
               <Image
               source={icons.google}

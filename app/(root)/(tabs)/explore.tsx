@@ -52,7 +52,7 @@ export default function Explore() {
 
 
   return (
-    <SafeAreaView className="bg-white h-full">
+    <SafeAreaView className="bg-accent-100 h-full">
       
       <FlatList
         data={properties}
